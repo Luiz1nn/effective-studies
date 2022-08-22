@@ -1,4 +1,4 @@
-.novaTarefa {
+.new_task {
   display:flex;
   flex-direction: column;
   grid-area: nova-tarefa;
@@ -7,7 +7,7 @@
   box-shadow: 2px 4px 4px #0000009F;
   padding: 12px;
 
-  .inputContainer {
+  .input_container {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -41,7 +41,7 @@
     padding: 24px;
     box-sizing: border-box;
 
-    .inputContainer {
+    .input_container {
       width: calc(60% - 12px);
 
       &:last-of-type {
