@@ -5,7 +5,7 @@ export default function Relogio () {
     <>
       <span className={style.relogio_number}>0</span>
       <span className={style.relogio_number}>0</span>
-      <span className={style.relogio_div}>:</span>
+      <span className={style.relogio_division}>:</span>
       <span className={style.relogio_number}>0</span>
       <span className={style.relogio_number}>0</span>
     </>
