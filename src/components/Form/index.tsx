@@ -1,16 +1,32 @@
 import React from 'react'
+import { ITask } from '../../types/task'
 import Button from '../Button'
 import style from './Form.module.scss'
 
-class Form extends React.Component {
+class Form extends React.Component<{
+  setTasks: React.Dispatch<React.SetStateAction<ITask[]>>
+}> {
   state = {
     task: '',
     time: '00:00:00'
   }
 
-  addTask (event: React.FormEvent<HTMLFormElement>) {
+  addTask (event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault()
-    console.log('state: ' , this.state)
+    this.props.setTasks(tasks => 
+      [ 
+        ...tasks, 
+        { 
+          ...this.state,
+          selected: false,
+          completed: false
+        } 
+      ])
+
+    this.setState({
+      task: '',
+      time: '00:00:00'
+    })
   }
 
   render () {
