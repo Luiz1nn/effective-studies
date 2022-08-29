@@ -7,11 +7,23 @@ import { ITask } from '../types/task'
 
 function App () {
   const [tasks, setTasks] = useState<ITask[]>([])
+  const [ selected, setSelected ] = useState<ITask>()
+
+  function selectTask (selectedTask: ITask) {
+    setSelected(selectedTask)
+    setTasks(tasks => tasks.map(task => ({
+      ...task,
+      selected: task.id === selectedTask.id ? true : false
+    })))
+  }
 
   return (
     <div className={style.app}>
       <Form setTasks={ setTasks } />
-      <List tasks={ tasks } />
+      <List 
+        tasks={ tasks } 
+        selectTask={ selectTask }        
+      />
       <Cronometro/>
     </div>
   )
