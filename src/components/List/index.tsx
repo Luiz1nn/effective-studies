@@ -9,16 +9,16 @@ interface IProps {
 
 function List ({ tasks, selectTask } : IProps) {
   return (
-    <aside className={style.list_tasks}>
+    <aside className={ style.list_tasks }>
       <h2>Estudos do dia</h2>
       <ul>
         {
-          tasks.map((item) => (
+          tasks.map(item => (
             <Item
               selectTask={ selectTask }
               key={ item.id }
               { ...item }
-            />            
+            />      
           ))
         }
       </ul>

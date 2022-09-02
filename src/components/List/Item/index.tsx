@@ -1,15 +1,15 @@
 import { ITask } from '../../../types/task'
-import style from '../List.module.scss'
+import style from './Item.module.scss'
 
 interface IProps extends ITask {
   selectTask: (selectedTask: ITask) => void
 }
 
-export default function Item ({ id, task, time, selected, completed, selectTask }: IProps) {
+export default function Item ({ id, task,   time, selected, completed, selectTask }: IProps) {
   return (
     <li 
-      className={ style.item }
-      onClick={ () => selectTask({ id, task, time, selected, completed}) }
+      className={`${style.item} ${selected ? style.item_selected : ''}`}
+      onClick={ () => selectTask({ id, task, time, selected, completed }) }
     >
       <h3>{ task }</h3>
       <span>{ time }</span>

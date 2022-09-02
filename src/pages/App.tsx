@@ -6,10 +6,10 @@ import { useState } from 'react'
 import { ITask } from '../types/task'
 
 function App () {
-  const [tasks, setTasks] = useState<ITask[]>([])
+  const [ tasks, setTasks ] = useState<ITask[]>([])
   const [ selected, setSelected ] = useState<ITask>()
 
-  function selectTask (selectedTask: ITask) {
+  function selectTask (selectedTask: ITask): void {
     setSelected(selectedTask)
     setTasks(tasks => tasks.map(task => ({
       ...task,
@@ -18,13 +18,13 @@ function App () {
   }
 
   return (
-    <div className={style.app}>
+    <div className={ style.app }>
       <Form setTasks={ setTasks } />
-      <List 
-        tasks={ tasks } 
-        selectTask={ selectTask }        
+      <List
+        tasks={ tasks }
+        selectTask={ selectTask }
       />
-      <Cronometro/>
+      <Cronometro selected={ selected }/>
     </div>
   )
 }
